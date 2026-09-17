@@ -1,19 +1,30 @@
-import CardGrid from "../component/CardGrid";
-import Hero from "../component/Hero";
+import { useEffect, useState } from "react";
+import CardGrid from "../components/CardGrid";
+import Hero from "../components/Hero";
+import { featureData } from "../data/features";
+import getData from "../api/getData";
 
-const Home = ({ features }) => {
+function Home() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(()=>{
+    const fetchData = async () => {
+      try {
+        const data = await getData();
+        setProducts(data);
+      } catch(err){
+        console.log(err);
+      }
+    };
+    fetchData();
+  },[])
+
   return (
-    <>
-      <Hero
-        title="Solusi Terbaik untuk Bisnismu"
-        subtitle="Platform all-in-one untuk manajemen, pemasaran, dan pertumbuhan bisnis kecil."
-        buttonText="Mulai Gratis"
-        onTap={() => console.log("Button clicked!")}
-      />
-
-      {/* <CardGrid features={features} /> */}
-    </>
+    <section>
+      <Hero />
+      <CardGrid features={featureData} />
+      <CardGrid features={products} />
+    </section>
   );
-};
-
+}
 export default Home;

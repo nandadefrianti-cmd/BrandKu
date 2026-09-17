@@ -1,41 +1,17 @@
-import "./About.css";
-
-const stats = [
-  { value: "5 mnt", label: "Waktu setup" },
-  { value: "1.200+", label: "Bisnis terdaftar" },
-  { value: "24/7", label: "Dukungan tim" },
-  { value: "99,9%", label: "Uptime layanan" },
-];
-
-const About = () => {
+function About() {
   return (
-    <section className="section" id="tentang">
-      <div className="container about__inner">
-        <div className="about__text">
-          <span className="eyebrow">Tentang</span>
-          <h2>Dibuat untuk bisnis yang sedang bertumbuh</h2>
-          <p>
-            BrandKu lahir dari satu pertanyaan sederhana: kenapa mengelola
-            bisnis kecil harus serumit itu? Kami menggabungkan manajemen,
-            pemasaran, dan laporan dalam satu tempat.
-          </p>
-          <p>
-            Tanpa keahlian teknis, tanpa banyak aplikasi terpisah. Cukup buka
-            satu dashboard, dan semuanya sudah ada di sana.
-          </p>
-        </div>
-
-        <div className="about__stats">
-          {stats.map((stat) => (
-            <div className="about__stat" key={stat.label}>
-              <span className="about__stat-value">{stat.value}</span>
-              <span className="about__stat-label">{stat.label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    <div className="container px-4 py-8 mx-auto">
+      <h1 className="mb-4 text-3xl font-bold">Tentang Brandku</h1>
+      <p className="mb-4 text-lg">
+        Brandku adalah platfrom all-in-one yang dirancang untuk membantu bisnis
+        kecil mengelola, memasarkan, dan mengembangkan usah mereka dengan lebih
+        efektif.
+      </p>
+      <p className="mb-4 text-lg">
+        Dengan berbagai fitur yang mudah digunakan, Brandku memungkinkann
+        pemilik bisnis untuk fokus pada petumbuhan kesuksesan mereka.
+      </p>
+    </div>
   );
-};
-
+}
 export default About;
